@@ -4,27 +4,23 @@ Header file for Mud_Road in Screen 1
 
 */
 #include<math.h>
-
+#include "shapes.h"
+#include "draw_scene_mudroad.h"
 #ifndef MUD_ROAD
 #define MUD_ROAD
-# define pi 3.142857
-
-void sun(){
-	glBegin(GL_POINTS);
-	float x, y, i;
-	for ( i = 0; i < (2 * pi); i += 0.001)
-	{
-		x = (30) * cos(i);
-		y = (30) * sin(i);
-		glVertex2i(x, y);
-	}
-
-	glEnd();
-
+float getSunX();
+void sun(int pos){
+    glColor3f(1,1,0);
+    drawEllipse(30,30,pos,620);
 }
 
-void pattern(){
+
+//Draw Mountains
+void mountains(){
     glColor3f(0.0,0.5,0.3);
+    if(getSunX()>1.3){
+        glColor4f(0,0.3,0.3,1);
+	}
 	glBegin(GL_POLYGON);
         glVertex2d(0,400);
         glVertex2d(200,550);
@@ -64,6 +60,9 @@ void road_display()
     //Road Left Side
     glPushMatrix();
 	glColor4f(0.0f, 1.0f, 1.0f, 1.0f); //Sky Blue
+	if(getSunX()>1.3){
+        glColor4f(0,0,1,1);
+	}
 	glBegin(GL_POLYGON);
 			glVertex2i(0,400);
 			glVertex2i(1440,420);
@@ -87,3 +86,20 @@ void road_display()
 
 }
 #endif // MUD_ROAD
+
+/*
+
+void sun1(){
+	glBegin(GL_POINTS);
+	float x, y, i;
+	for ( i = 0; i < (2 * pi); i += 0.001)
+	{
+		x = (30) * cos(i);
+		y = (30) * sin(i);
+		glVertex2i(x, y);
+	}
+
+	glEnd();
+
+}
+*/

@@ -1,191 +1,175 @@
 #ifndef MAN
 #define MAN
+#include "shapes.h"
 
-void man(int pos)
-{
-	glColor3ub(0,0,0);
-	glPushMatrix();
-	glTranslatef(540-400+pos,495-50,0);
-	glutSolidTorus(1,10,100,90);
-	glPopMatrix();
-	glColor3ub(255,191,128);
-    glPushMatrix();
-	glTranslatef(540-400+pos,495-50,0);
-	glutSolidTorus(7,7,100,90);
-	glPopMatrix();
-	glColor3ub(0,0,0);
+void man(int pos){
+
+	//Buttons
+	glBegin(GL_POINTS);
+		glVertex2f(pos+250,375);
+		glVertex2f(pos+250,385);
+		glVertex2f(pos+250,395);
+		glVertex2f(pos+250,405);
+	glEnd();
+
+	//Eyes
+	glBegin(GL_POINTS);
+		glVertex2f(pos+250-3.3,422);
+		glVertex2f(pos+250+3.3,422);
+	glEnd();
+
+	//Eyebrows
+	glColor3f(0,0,0);
 	glBegin(GL_LINES);
- 		glVertex2i(540-400+pos,495-50);
- 		glVertex2i(540-400+pos,490-50); //nose
-  		glVertex2i(531-400+pos,500-50);
- 		glVertex2i(537-400+pos,500-50);//eyebrow
-  		glVertex2i(543-400+pos,500-50);
- 		glVertex2i(549-400+pos,500-50);//eyebrow
- 	glEnd();
-//ear right
+		glVertex2f(pos+250-6,423);
+		glVertex2f(pos+250-5,424);
+
+		glVertex2f(pos+250-5,424);
+		glVertex2f(pos+250-4,425);
+
+		glVertex2f(pos+250-4,425);
+		glVertex2f(pos+250-3,425);
+
+		glVertex2f(pos+250-3,425);
+		glVertex2f(pos+250-2,424);
+
+		glVertex2f(pos+250-2,424);
+		glVertex2f(pos+250-1,423);
+
+		glVertex2f(pos+250+1,423);
+		glVertex2f(pos+250+2,424);
+
+		glVertex2f(pos+250+2,424);
+		glVertex2f(pos+250+3,425);
+
+		glVertex2f(pos+250+3,425);
+		glVertex2f(pos+250+4,425);
+
+		glVertex2f(pos+250+4,425);
+		glVertex2f(pos+250+5,424);
+
+		glVertex2f(pos+250+5,424);
+		glVertex2f(pos+250+6,423);
+	glEnd();
+
+
+	//Nose
+	glLineWidth(0.1);
+	glBegin(GL_LINES);
+		glVertex2f(pos+250,419);
+		glVertex2f(pos+250,416);
+	glEnd();
+
+	//Mouth
+	glBegin(GL_LINE_LOOP);
+		glVertex2f(pos+250-4,414);
+		glVertex2f(pos+250-3,413.5);
+		glVertex2f(pos+250-2,412.5);
+		glVertex2f(pos+250-1,412.5);
+		glVertex2f(pos+250,411.5);
+		glVertex2f(pos+250+1,412.5);
+		glVertex2f(pos+250+2,412.5);
+		glVertex2f(pos+250+3,413.5);
+		glVertex2f(pos+250+4,414);
+	glEnd();
+
+	//Ears
 	glBegin(GL_POLYGON);
-	glColor3ub(255,191,128);
-	glVertex2i(540-14-400+pos,494+1-50);
-	glVertex2i(540-14-400+pos,490+1-50);
-	glVertex2i(538-14-400+pos,489+1-50);
-	glVertex2i(538-14-400+pos,495+1-50);
+		glVertex2f(pos+250-10.5,422);
+		glVertex2f(pos+250-11.5,420);
+		glVertex2f(pos+250-11,417);
+		glVertex2f(pos+250-10.2,415);
 	glEnd();
-	//ear left
 	glBegin(GL_POLYGON);
-	glColor3ub(255,191,128);
-	glVertex2i(554-400+pos,495-50);
-	glVertex2i(556-400+pos,496-50);
-	glVertex2i(556-400+pos,491-50);
-	glVertex2i(554-400+pos,490-50);
+		glVertex2f(pos+250+10.5,422);
+		glVertex2f(pos+250+11.5,420);
+		glVertex2f(pos+250+11,417);
+		glVertex2f(pos+250+10.2,415);
 	glEnd();
-//hair
+
+	//Head
+	glColor3f(0.1,.9,.5);
+	drawEllipse(10.5,10.5,pos+250,420);
+
+	//Hair
+	glColor3f(0,0,0);
 	glBegin(GL_POLYGON);
-	  glColor3ub(0,0,0);
-	  glVertex2i(527-400+pos,503-50);
-	  glVertex2i(553-400+pos,503-50);
-	  glVertex2i(547-400+pos,509-50);
-	  glVertex2i(533-400+pos,509-50);
+		glVertex2f(pos+250-10,420);
+		glVertex2f(pos+250-10,436);
+		glVertex2f(pos+250-7,434);
+		glVertex2f(pos+250-5,437);
+		glVertex2f(pos+250-3,435);
+		glVertex2f(pos+250-1,437);
+		glColor3f(0,0.3,0.1);
+		glVertex2f(pos+250,435);
+		glVertex2f(pos+250+1,437);
+		glVertex2f(pos+250+3,435);
+		glVertex2f(pos+250+5,437);
+		glVertex2f(pos+250+7,434);
+		glVertex2f(pos+250+10,436);
+		glVertex2f(pos+250+10,420);
+
+	glEnd();
+
+	//Belt
+	glColor3f(0.2,0,0);
+    glBegin(GL_POLYGON);
+		glVertex2f(pos+250-14,370);
+		glVertex2f(pos+250+14,370);
+		glVertex2f(pos+250+13,367);
+		glVertex2f(pos+250-13,367);
 	glEnd();
 
 
-	// eyes
- 	glBegin(GL_POLYGON);
- 		glVertex2i(533-400+pos,498-50);
- 		glVertex2i(535-400+pos,498-50);
- 		glVertex2i(535-400+pos,496-50);
- 		glVertex2i(533-400+pos,496-50);
-glEnd();
-glBegin(GL_POLYGON);
- 		glVertex2i(545-400+pos,498-50);
- 		glVertex2i(547-400+pos,498-50);
- 		glVertex2i(547-400+pos,496-50);
- 		glVertex2i(545-400+pos,496-50);
-glEnd();
- 	// mouth
-glBegin(GL_POLYGON);
- 		glVertex2i(535-400+pos,487-50);
- 		glVertex2i(540-400+pos,485-50);
- 		glVertex2i(545-400+pos,487-50);
- 		glVertex2i(540-400+pos,487-50);
-glEnd();
-//beard
-glBegin(GL_POLYGON);
-    glColor3ub(0,0,0);
-    glVertex2i(538-400+pos,480-50);
-	glVertex2i(542-400+pos,480-50);
-	glVertex2i(542-400+pos,484-50);
-	glVertex2i(538-400+pos,484-50);
-glEnd();
-//shirt
- 	glBegin(GL_POLYGON);
- 		glColor3ub(55,50,70);
-	    glVertex2i(529-400+pos,480-50);
- 		glVertex2i(551-400+pos,480-50);
- 		glVertex2i(566-400+pos,469-50);
- 		glVertex2i(561-400+pos,461-50);
- 		glVertex2i(556-400+pos,465-50);
-        glVertex2i(556-400+pos,445-50);
- 		glVertex2i(524-400+pos,445-50);
- 		glVertex2i(524-400+pos,465-50);
- 		glVertex2i(519-400+pos,460-50);
- 		glVertex2i(514-400+pos,469-50);
-glEnd();
-//hands
- 	glBegin(GL_POLYGON);
-		glColor3ub(255,191,128);
- 		glVertex2i(565-400+pos,468-50);
- 		glVertex2i(575-400+pos,453-50);
- 		glVertex2i(567-400+pos,454-50);
- 		glVertex2i(562-400+pos,462-50);
- 	glEnd();
-  	glBegin(GL_POLYGON);
-		glVertex2i(575-400+pos,453-50);
- 		glVertex2i(556-400+pos,438-50);
- 		glVertex2i(556-400+pos,445-50);
- 		glVertex2i(567-400+pos,454-50);
- 	glEnd();
-glBegin(GL_POLYGON);
-	 	glVertex2i(515-400+pos,468-50);
- 		glVertex2i(505-400+pos,453-50);
- 		glVertex2i(513-400+pos,454-50);
- 		glVertex2i(518-400+pos,462-50);
- 	glEnd();
-  	glBegin(GL_POLYGON);
-		glVertex2i(505-400+pos,453-50);
-   		glVertex2i(524-400+pos,438-50);
-   		glVertex2i(524-400+pos,445-50);
-   		glVertex2i(513-400+pos,454-50);
-  	glEnd();
-// belt
- 	glBegin(GL_POLYGON);
-		glColor3ub(150,12,30);
- 		glVertex2i(556-400+pos,445-50);
- 		glVertex2i(524-400+pos,445-50);
- 		glVertex2i(524-400+pos,440-50);
-		glVertex2i(524-400+pos,440-50);
-
- 		glVertex2i(556-400+pos,440-50);
-glEnd();
-// collar
- 	glBegin(GL_POLYGON);
-		glColor3ub(200,140,110-50);
- 		glVertex2i(529-400+pos,480-50);
- 		glVertex2i(551-400+pos,480-50);
- 		glVertex2i(546-400+pos,470-50);
- 		glVertex2i(534-400+pos,470-50);
-glEnd();
-
- 	glBegin(GL_TRIANGLES);
-		glColor3ub(20,140,110);
- 		glVertex2i(540-400+pos,477-50);
-  		glVertex2i(545-400+pos,470-50);
- 		glVertex2i(535-400+pos,470-50);
-glEnd();
-
-// buttons
-	glColor3ub(0,0,0);
-	glPushMatrix();
-	glTranslatef(540-400+pos,465-50,0);
-	glutSolidTorus(1,1,100,90);
-	glPopMatrix();
-	glPushMatrix();
-	glTranslatef(540-400+pos,458-50,0);
-	glutSolidTorus(1,1,100,90);
-	glPopMatrix();
-	glPushMatrix();
-	glTranslatef(540-400+pos,451-50,0);
-	glutSolidTorus(1,1,100,90);
-	glPopMatrix();
-
-	/// pant
-glBegin(GL_POLYGON);
-		glColor3ub(80,80,230);
-glVertex2i(555-400+pos,440-50);
-glVertex2i(525-400+pos,440-50);
-glVertex2i(520-400+pos,405-50);
-glVertex2i(530-400+pos,405-50);
-glVertex2i(533-400+pos,438-50);
-glVertex2i(550-400+pos,405-50);
-glVertex2i(560-400+pos,405-50);
+	//Pants
+	glColor3f(0,0,1);
+    glBegin(GL_POLYGON);
+		glVertex2f(pos+250-14,370);
+		glVertex2f(pos+250-16,330);
+		glVertex2f(pos+250-6,330);
+		glVertex2f(pos+250,357);
+		glVertex2f(pos+250,357);
+		glVertex2f(pos+250+6,330);
+		glVertex2f(pos+250+16,330);
+		glVertex2f(pos+250+14,370);
+		glVertex2f(pos+250-14,370);
 	glEnd();
-		//shoe left
+
+
+	//Left-Hand
+	glColor3f(0.5,0,0.5);
 	glBegin(GL_POLYGON);
-	glColor3ub(100,10,10);
-	glVertex2i(530-400+pos,405-50);
-	glVertex2i(530-400+pos,396-50);
-	glVertex2i(512-400+pos,396-50);
-	glVertex2i(520-400+pos,405-50);
-
+		glVertex2f(pos+250-12,400);
+		glVertex2f(pos+250-30,375);
+		glVertex2f(pos+250-30,365);
+		glVertex2f(pos+250-14,390);
+		glVertex2f(pos+250-12,400);
 	glEnd();
-	//shoe right
+
+	//Right-Hand
+	glColor3f(0.5,0,0.5);
 	glBegin(GL_POLYGON);
-	glColor3ub(100,10,10);
-	glVertex2i(550-400+pos,405-50);
-	glVertex2i(550-400+pos,396-50);
-	glVertex2i(568-400+pos,396-50);
-	glVertex2i(560-400+pos,405-50);
+		glVertex2f(pos+250+12,400);
+		glVertex2f(pos+250+30,375);
+		glVertex2f(pos+250+30,365);
+		glVertex2f(pos+250+14,390);
+		glVertex2f(pos+250+12,400);
 	glEnd();
 
-	glutPostRedisplay();
+	//Body
+	glColor3f(0.9,0.8,.1);
+    drawEllipse(15,(410-350)/2,pos+250,380);
+
+    //Feet(Left and Right)
+    glColor3f(1,0,0);
+	drawEllipse(6.5,4.5,pos+250-10,330-4.5);
+	drawEllipse(6.5,4.5,pos+250+10,330-4.5);
+
+	//Fist(LEFT and Right)
+	glColor3f(1,0,0);
+	drawEllipse(2.5,4,pos+250-30-3/2,(365+375)/2);
+	drawEllipse(2.5,4,pos+250+30+5/2,(365+375)/2);
+
 }
+
 #endif // MAN
