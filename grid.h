@@ -20,21 +20,21 @@ void drawline (float x1, float y1, float x2, float y2)
 
 void drawgrid()
 {
-    glColor4f (1,0,0,1);
+    glColor4f (0,0,0,1);
 
     for (float i = 0; i < 1500; i += 20)
     {
-        if ((int) i % 100 == 0) glLineWidth (3.0);
-        else if ((int) i % 50 == 0) glLineWidth (2.0);
-        else glLineWidth (1.0);
+        if ((int) i % 100 == 0) glLineWidth (1.5);
+        else if ((int) i % 50 == 0) glLineWidth (1.0);
+        else glLineWidth (0.5);
         drawline (0, i, (float) WIDTH, i);
     }
 
     for (float i = 0; i <1500; i += 20)
     {
-        if ((int) i % 100 == 0) glLineWidth (3.0);
-        else if ((int) i % 50 == 0) glLineWidth (2.0);
-        else glLineWidth (1.0);
+        if ((int) i % 100 == 0) glLineWidth (1.5);
+        else if ((int) i % 50 == 0) glLineWidth (1.0);
+        else glLineWidth (0.5);
         drawline (i, 0, i, (float) HEIGHT);
     }
 }

@@ -6,7 +6,7 @@
 #include "tree.h"
 #include "shapes.h"
 
-extern float posX=0, posY=0, posZ=0,carX=0,carY=0,carZ=0,theta=0.0,farmX=0.0,farmY=0.0,sunX=0,sunY=0;
+extern float posX=0, posY=0, posZ=0,carX=0,carY=0,carZ=0,theta=0.0,farmX=0.0,farmY=0.0,sunX=0,sunY=0,planeX=0,droneX=0,droneY=0;
 
 
 void draw_scene_mudroad(){
@@ -34,7 +34,6 @@ void draw_scene_mudroad(){
 
     //Move sun on Key press
     glPushMatrix();
-
 	glTranslatef(sunX,sunY,0);
         sun(100);
     glPopMatrix();

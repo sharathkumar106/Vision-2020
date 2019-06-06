@@ -13,7 +13,7 @@ void draw_scene_highway(){
 
     glPushMatrix();
         glTranslatef(posX,posY,posZ);
-	    man(-250);
+	    drawCar();
     glPopMatrix();
 
     glPushMatrix();

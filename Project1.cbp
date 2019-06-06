@@ -51,6 +51,9 @@
 		<Unit filename="draw_scene_flyover.h" />
 		<Unit filename="draw_scene_highway.h" />
 		<Unit filename="draw_scene_mudroad.h" />
+		<Unit filename="drone.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="farm.h" />
 		<Unit filename="grid.h" />
 		<Unit filename="highway.h" />

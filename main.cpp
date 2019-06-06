@@ -1,7 +1,7 @@
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
-#include <GL/glut.h>
+#include <GL/freeglut.h>
 #endif
 #include <stdlib.h>
 #include<stdio.h>
@@ -32,9 +32,10 @@ void intro_farm();
 void display_farm();
 void intro_tech();
 void display_tech();
+void show_signals();
 void display_conclusion();
 void display_ending();
-
+void quit();
 /* GLUT callback Handlers */
 void init(){
 	gluOrtho2D(0, 1440, 0, 740);
@@ -44,14 +45,14 @@ void init(){
 void display_title(void)
 {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+
         clgname();
         depart();
         projname();
         title();
         team();
         guide();
-            printf("title\n");
-
+        design();
     glFlush();
 }
 
@@ -59,7 +60,7 @@ void display_intro1()
 {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     introduction();
-            printf("intro1\n");
+            //printf("intro1\n");
 
     glFlush();
 }
@@ -68,7 +69,7 @@ void display_intro2()
 {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     page2();
-            printf("intro2\n");
+            //printf("intro2\n");
 
     glFlush();
 }
@@ -77,7 +78,7 @@ void display_intro3()
 {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     page3();
-        printf("intro3\n");
+        //printf("intro3\n");
 
     glFlush();
 }
@@ -86,7 +87,7 @@ void intro_roadways()
 {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     road_intro();
-        printf("roadways\n");
+        //printf("roadways\n");
 
     glFlush();
 }
@@ -95,7 +96,7 @@ void intro_highways()
 {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     highway_intro();
-        printf("Highways\n");
+        //printf("Highways\n");
 
     glFlush();
 }
@@ -104,7 +105,7 @@ void intro_farm()
 {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     agri_intro();
-        printf("Agriculture\n");
+        //printf("Agriculture\n");
 
     glFlush();
 }
@@ -113,7 +114,7 @@ void intro_tech()
 {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     tech_intro();
-        printf("Technology\n");
+        //printf("Technology\n");
 
     glFlush();
 }
@@ -121,7 +122,7 @@ void intro_tech()
 void display_conclusion(){
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     conclusion();
-        printf("Technology\n");
+        //printf("Conclusion\n");
 
     glFlush();
 }
@@ -129,16 +130,17 @@ void display_conclusion(){
 void display_ending(){
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     ending();
-        printf("Technology\n");
-
+        //printf("Ending\n");
     glFlush();
 }
 
 void display_road(void)
 {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    //drawgrid();
     draw_scene_mudroad();
-    printf("mudroad\n");
+
+    //printf("mudroad\n");
 
     glFlush();
 }
@@ -146,8 +148,9 @@ void display_road(void)
 void display_highway(void)
 {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    //drawgrid();
     draw_scene_highway();
-    printf("highway\n");
+    //printf("highway\n");
 
     glFlush();
 }
@@ -155,31 +158,36 @@ void display_highway(void)
 void display_flyover(void)
 {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    //drawgrid();
     draw_scene_flyover();
-    printf("flyover\n");
-
+    //printf("flyover\n");
     glFlush();
 }
 
 void display_farm(void)
 {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    //drawgrid();
     draw_scene_farm();
-    printf("farm\n");
+    //printf("farm\n");
     glFlush();
 }
 
 void display_tech(void)
 {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+   //drawgrid();
+   //drawgrid();
+
+    show_signals();
+
     tech_4G();
-    printf("technology\n");
+    //printf("technology\n");
     glFlush();
 }
-
-
-
-
+void quit(){
+    exit(0);
+}
 
 
 int main(int argc, char *argv[])
@@ -192,6 +200,7 @@ int main(int argc, char *argv[])
     init();
     glEnable(GL_DEPTH_TEST);
     PlaySound(TEXT("G:\\CG MiniProject\\OpenGL\\Project1\\sound\\song.wav"),NULL,SND_FILENAME|SND_ASYNC);
+    //PlaySound(NULL,NULL,NULL); //to stop the song
     glutTimerFunc(1000,animate_title,0);
     glutDisplayFunc(display_title);
     glutKeyboardFunc(key);

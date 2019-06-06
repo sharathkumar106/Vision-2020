@@ -1,6 +1,5 @@
 #ifndef PLANE
 #define PLANE
-#include "myLibrary.h"
 
 void draw_plane(){
 

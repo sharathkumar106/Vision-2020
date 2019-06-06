@@ -1,6 +1,6 @@
 #ifndef KEYBOARD_FUNC
 #define KEYBOARD_FUNC
-static float move_unit = 0.05f;
+static float move_unit = 0.05f,drone_move=0.07;
 int turn=1;
 static int page=0;
 void display_title();
@@ -29,6 +29,7 @@ void animate_sun(int);
 void animate_highways(int);
 void animate_man2(int);
 void animate_car(int);
+void animate_plane(int value);
 void animate_agri(int);
 void animate_farmer(int);
 void animate_intro_tech(int);
@@ -45,20 +46,12 @@ static void key(unsigned char key, int x, int y)
         case 'q':
             exit(0);
             break;
-         case 'l':
+         case 'z':
             posX+=move_unit;;
             break;
 
-        case 'j':
+        case 'x':
             posX-=move_unit;;
-        break;
-
-        case 'i':
-            posY+=move_unit;;
-            break;
-
-        case 'k':
-            posY-=move_unit;;
         break;
 
         case 't':
@@ -102,14 +95,26 @@ static void key(unsigned char key, int x, int y)
 
 
         case 'v':
+            /*
             farmX+=0.02;
             farmY+=0.01;
             if(farmY>15*0.01)
                 farmY+=0.01;
             if(farmY>40*0.01)
                 farmY-=0.005;
+                */
+
+            if(farmX<2.2&&farmY<1.7){
+            farmX+=0.017;
+            farmY+=0.01;
+            if(farmY>=14*0.01)
+                farmY+=0.01;
+            if(farmY>40*0.01)
+                farmY-=0.0072;
             printf("%f\t%f\n",farmX,farmY);
+            }
             break;
+
 
         case 'b':
             if(carY<0.01*turn)
@@ -125,7 +130,7 @@ static void key(unsigned char key, int x, int y)
                     carY+=0.015;
                     carX+=0.003;
                 }
-                printf("Turn=%d\t Theta=%f\n",turn,theta);
+             //   printf("Turn=%d\t Theta=%f\n",turn,theta);
             }
             break;
 
@@ -144,11 +149,34 @@ static void key(unsigned char key, int x, int y)
                 glutPostRedisplay();
             }
             if(page==4){
-                glutTimerFunc(1000, animate_tech, 0);
+                glutTimerFunc(100, animate_tech, 0);
                 glutPostRedisplay();
             }
         default:
-         break;
+        break;
+
+        case 'p':
+            if(page==4){
+                glutDisplayFunc(intro_tech);
+
+            }
+            break;
+
+        case 'l':
+            droneX+=drone_move;
+            break;
+
+        case 'j':
+            droneX-=drone_move;
+        break;
+
+        case 'i':
+            droneY+=drone_move;
+            break;
+
+        case 'k':
+            droneY-=drone_move;
+        break;
 
     }
 

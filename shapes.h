@@ -1,6 +1,6 @@
 #ifndef SHAPES
 #define SHAPES
-
+#include <math.h>
 void drawEllipse(int rx, int ry, int xc, int yc) {
 	float a = rx;
 	float b = ry;
@@ -86,5 +86,18 @@ void drawCircle(int r, int  xc, int yc) {
 	}//end while
 }//end drawCircle
 
+void drawCircleWire(int rx,int ry){
+	glBegin(GL_POINTS);
+	float x, y, i;
+	for ( i = 0; i < (2 * 3.142); i += 0.01)
+	{
+		x = (30) * cos(i);
+		y = (30) * sin(i);
+		glVertex2i(x, y);
+	}
+
+	glEnd();
+
+}
 
 #endif // SHAPES

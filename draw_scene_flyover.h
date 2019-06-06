@@ -18,8 +18,12 @@ void draw_scene_flyover(){
     glPopMatrix();
 
     glPushMatrix();
-        //drawgrid();
+        glTranslatef(planeX,0,0);
         draw_plane();
+    glPopMatrix();
+
+    glPushMatrix();
+        //drawgrid();
         draw_flyover();
     glPopMatrix();
 

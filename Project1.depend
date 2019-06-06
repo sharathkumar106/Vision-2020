@@ -1,7 +1,7 @@
 # depslib dependency file v1.0
-1556016706 source:g:\cg miniproject\opengl\project1\main.cpp
+1559247297 source:g:\cg miniproject\opengl\project1\main.cpp
 	<GLUT/glut.h>
-	<GL/glut.h>
+	<GL/freeglut.h>
 	<stdlib.h>
 	<stdio.h>
 	<windows.h>
@@ -240,7 +240,7 @@
 	<stddef.h>
 	<GL/gl.h>
 
-1555933425 g:\cg miniproject\opengl\project1\grid.h
+1556590904 g:\cg miniproject\opengl\project1\grid.h
 
 1341006776 c:\program files (x86)\codeblocks\mingw\include\stdio.h
 	<_mingw.h>
@@ -252,20 +252,20 @@
 	<_mingw.h>
 	<stddef.h>
 
-1555961924 g:\cg miniproject\opengl\project1\mud_road.h
+1556360877 g:\cg miniproject\opengl\project1\mud_road.h
 	<math.h>
 	"shapes.h"
 	"draw_scene_mudroad.h"
 
-1555936183 g:\cg miniproject\opengl\project1\man.h
+1555936184 g:\cg miniproject\opengl\project1\man.h
 	"shapes.h"
 
-1555933379 g:\cg miniproject\opengl\project1\tree.h
+1555933380 g:\cg miniproject\opengl\project1\tree.h
 
 1341006774 c:\program files (x86)\codeblocks\mingw\include\math.h
 	<_mingw.h>
 
-1556019134 g:\cg miniproject\opengl\project1\keyboard_func.h
+1556856891 g:\cg miniproject\opengl\project1\keyboard_func.h
 
 1554924382 g:\cg miniproject\opengl\project1\draw_scene_1.h
 	"grid.h"
@@ -281,12 +281,13 @@
 	"buildings.h"
 	"cloud.h"
 
-1555933155 g:\cg miniproject\opengl\project1\highway.h
+1556357079 g:\cg miniproject\opengl\project1\highway.h
+	"shapes.h"
 
-1555932778 g:\cg miniproject\opengl\project1\buildings.h
+1555932780 g:\cg miniproject\opengl\project1\buildings.h
 	"TextureImage.h"
 
-1555933353 g:\cg miniproject\opengl\project1\textureimage.h
+1555933354 g:\cg miniproject\opengl\project1\textureimage.h
 	<assert.h>
 	<fstream>
 	"imageloader.h"
@@ -294,54 +295,69 @@
 1341006770 c:\program files (x86)\codeblocks\mingw\include\assert.h
 	<_mingw.h>
 
-1555933178 g:\cg miniproject\opengl\project1\imageloader.h
+1555933180 g:\cg miniproject\opengl\project1\imageloader.h
 	"TextureImage.h"
 
 1554973358 g:\cg miniproject\opengl\project1\cloud.h
 
-1555961709 g:\cg miniproject\opengl\project1\draw_scene_mudroad.h
+1557398856 g:\cg miniproject\opengl\project1\draw_scene_mudroad.h
 	"grid.h"
 	"man.h"
 	"mud_road.h"
 	"tree.h"
 	"shapes.h"
 
-1555959527 g:\cg miniproject\opengl\project1\draw_scene_highway.h
+1556345645 g:\cg miniproject\opengl\project1\draw_scene_highway.h
 	"grid.h"
 	"man.h"
 	"tree.h"
 	"buildings.h"
 	"highway.h"
 
-1555932948 g:\cg miniproject\opengl\project1\draw_scene_flyover.h
+1556357218 g:\cg miniproject\opengl\project1\draw_scene_flyover.h
 	"TextureImage.h"
 	"plane.h"
 	"grid.h"
 
-1555933329 g:\cg miniproject\opengl\project1\shapes.h
+1556361074 g:\cg miniproject\opengl\project1\shapes.h
+	<math.h>
 
-1555932510 g:\cg miniproject\opengl\project1\plane.h
-	"myLibrary.h"
+1557413020 g:\cg miniproject\opengl\project1\plane.h
 
-1555932969 g:\cg miniproject\opengl\project1\draw_scene_farm.h
+1557398706 g:\cg miniproject\opengl\project1\draw_scene_farm.h
 	"farm.h"
 	"grid.h"
+	"drone.h"
+	<math.h>
 
-1555933227 g:\cg miniproject\opengl\project1\farm.h
+1555933228 g:\cg miniproject\opengl\project1\farm.h
 	"grid.h"
 	"tree.h"
 	"TextureImage.h"
 	"shapes.h"
 
-1555948986 g:\cg miniproject\opengl\project1\titlepage.h
+1556550630 g:\cg miniproject\opengl\project1\titlepage.h
+	"shapes.h"
 
-1555933621 g:\cg miniproject\opengl\project1\mylibrary.h
+1555933622 g:\cg miniproject\opengl\project1\mylibrary.h
 
-1556019263 g:\cg miniproject\opengl\project1\intro.h
+1556019264 g:\cg miniproject\opengl\project1\intro.h
 	"TextureImage.h"
 
-1556020159 g:\cg miniproject\opengl\project1\animation.h
+1559247681 g:\cg miniproject\opengl\project1\animation.h
+	"technology.h"
 
-1555996619 g:\cg miniproject\opengl\project1\technology.h
+1556364078 g:\cg miniproject\opengl\project1\technology.h
 	"TextureImage.h"
+	"shapes.h"
+
+1426329928 c:\program files (x86)\codeblocks\mingw\include\gl\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1426329928 c:\program files (x86)\codeblocks\mingw\include\gl\freeglut_ext.h
+	<stdarg.h>
+
+1556696113 g:\cg miniproject\opengl\project1\drone.h
+	"shapes.h"
 

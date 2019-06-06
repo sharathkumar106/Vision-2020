@@ -11,6 +11,9 @@ Header file for Mud_Road in Screen 1
 float getSunX();
 void sun(int pos){
     glColor3f(1,1,0);
+    if(getSunX()>1.0){
+        glColor4f(1,1,1,1);
+	}
     drawEllipse(30,30,pos,620);
 }
 
@@ -18,7 +21,7 @@ void sun(int pos){
 //Draw Mountains
 void mountains(){
     glColor3f(0.0,0.5,0.3);
-    if(getSunX()>1.3){
+    if(getSunX()>1.0){
         glColor4f(0,0.3,0.3,1);
 	}
 	glBegin(GL_POLYGON);
@@ -60,7 +63,7 @@ void road_display()
     //Road Left Side
     glPushMatrix();
 	glColor4f(0.0f, 1.0f, 1.0f, 1.0f); //Sky Blue
-	if(getSunX()>1.3){
+	if(getSunX()>1.0){
         glColor4f(0,0,1,1);
 	}
 	glBegin(GL_POLYGON);
@@ -87,19 +90,3 @@ void road_display()
 }
 #endif // MUD_ROAD
 
-/*
-
-void sun1(){
-	glBegin(GL_POINTS);
-	float x, y, i;
-	for ( i = 0; i < (2 * pi); i += 0.001)
-	{
-		x = (30) * cos(i);
-		y = (30) * sin(i);
-		glVertex2i(x, y);
-	}
-
-	glEnd();
-
-}
-*/
